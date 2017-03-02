@@ -1,0 +1,157 @@
+<!-- Master layout. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/detail_stock_symbol"
+        style="@style/StockSymbolTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="NFLX" />
+
+    <TextView
+        android:id="@+id/detail_stock_bid_price"
+        style="@style/DetailBidPriceTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="118.10" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/normal_space"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/detail_stock_change"
+            style="@style/PercentChangeTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            tools:text="-$99.99" />
+
+        <TextView
+            android:id="@+id/detail_stock_change_percent"
+            style="@style/PercentChangeTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/small_space"
+            android:paddingLeft="@dimen/small_space"
+            android:paddingRight="@dimen/small_space"
+            android:paddingStart="@dimen/small_space"
+            android:textAlignment="viewStart"
+            tools:text="(-99.99%)" />
+
+        <TextView
+            android:id="@+id/detail_stock_timestamp"
+            style="@style/DetailTimeStamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="12:50 PM EST" />
+    </LinearLayout>
+
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@string/detail_chart_detail" />
+
+
+    <TextView
+        android:id="@+id/detail_stock_key_stats_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/normal_space"
+        android:text="@string/detail_stock_key_stats_label"
+        android:textSize="@dimen/medium_font_size" />
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/detail_stock_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:columnCount="3">
+
+        <include
+            android:id="@+id/detail_stock_days_low"
+            layout="@layout/label_detail_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="@integer/column_weight" />
+
+        <android.support.v4.widget.Space
+            android:gravity="center_horizontal"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            app:layout_rowSpan="4" />
+
+        <include
+            android:id="@+id/detail_stock_days_high"
+            layout="@layout/label_detail_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="@integer/column_weight" />
+
+        <include
+            android:id="@+id/detail_stock_year_low"
+            layout="@layout/label_detail_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="@integer/column_weight" />
+
+        <include
+            android:id="@+id/detail_stock_year_high"
+            layout="@layout/label_detail_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="@integer/column_weight" />
+
+        <include
+            android:id="@+id/detail_stock_open"
+            layout="@layout/label_detail_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="@integer/column_weight" />
+
+        <include
+            android:id="@+id/detail_stock_close"
+            layout="@layout/label_detail_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="@integer/column_weight" />
+
+        <include
+            android:id="@+id/detail_stock_vol"
+            layout="@layout/label_detail_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="@integer/column_weight" />
+
+        <include
+            android:id="@+id/detail_stock_avg_vol"
+            layout="@layout/label_detail_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_columnWeight="@integer/column_weight" />
+
+    </android.support.v7.widget.GridLayout>
+
+</LinearLayout>
